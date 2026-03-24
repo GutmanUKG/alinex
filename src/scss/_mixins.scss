@@ -1,0 +1,81 @@
+// Custom mixins
+
+// Responsive font size
+@mixin responsive-font($min-size, $max-size, $min-width: 320px, $max-width: 1440px) {
+  font-size: $min-size;
+
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{($max-size - $min-size) / 1px} * ((100vw - #{$min-width}) / #{($max-width - $min-width) / 1px}));
+  }
+
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Absolute center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Truncate text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Hover effect
+@mixin hover-effect {
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Custom scrollbar
+@mixin custom-scrollbar($width: 8px, $track: #f1f1f1, $thumb: #888) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: $width / 2;
+
+    &:hover {
+      background: darken($thumb, 10%);
+    }
+  }
+}
+
+// Placeholder color
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color;
+    opacity: 1;
+  }
+}

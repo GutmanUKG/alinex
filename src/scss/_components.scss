@@ -1,0 +1,152 @@
+// Custom components
+
+// Header
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: $white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: $transition-base;
+
+  &.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &__logo {
+    img, svg {
+      max-height: 40px;
+      width: auto;
+    }
+  }
+}
+
+// Hero section
+.hero {
+  padding-top: 100px;
+  min-height: 100vh;
+  @include flex-center;
+  background: linear-gradient(135deg, $primary 0%, darken($primary, 20%) 100%);
+  color: $white;
+
+  &__title {
+    @include responsive-font(2rem, 4rem);
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    @include responsive-font(1rem, 1.5rem);
+    opacity: 0.9;
+  }
+}
+
+// Cards
+.card-custom {
+  border: none;
+  border-radius: $border-radius-lg;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: $transition-base;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  &__img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__body {
+    padding: 1.5rem;
+  }
+}
+
+// Buttons
+.btn-custom {
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: $transition-base;
+
+  &--primary {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: darken($primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba($primary, 0.4);
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 2px solid $primary;
+    color: $primary;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+}
+
+// Footer
+.footer {
+  background-color: $dark;
+  color: $white;
+  padding: 60px 0 30px;
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  &__link {
+    color: rgba($white, 0.7);
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba($white, 0.1);
+    padding-top: 30px;
+    margin-top: 40px;
+  }
+}
+
+// Social icons
+.social {
+  display: flex;
+  gap: 15px;
+
+  &__link {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba($white, 0.1);
+    color: $white;
+    transition: $transition-base;
+
+    &:hover {
+      background: $primary;
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
