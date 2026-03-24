@@ -13,43 +13,44 @@
   --pt-family: "PT Sans", sans-serif;
 }
 
-
-header{
+body{
+  overflow-x: hidden;
+}
+.header {
   display: flex;
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
   padding: 55px 0;
-  .header__logo{
-      width: max-content;
-      display: block;
-      
-  }
-  .header__menu{
+
+  @include e(logo) {
     width: max-content;
-    ul{
+    display: block;
+  }
+
+  @include e(menu) {
+    width: max-content;
+
+    ul {
       display: flex;
       padding: 0;
       margin: 0;
       list-style: none;
       gap: 80px;
-      li{
-        a{
-          text-decoration: none;
-          font-family: var(--pt-family);
-          font-weight: 600;
-          font-size: 24px;
 
-          color: #000;
-        }
+      li a {
+        text-decoration: none;
+        font-family: var(--pt-family);
+        font-weight: 600;
+        font-size: 24px;
+        color: #000;
       }
     }
   }
 }
 
-section.banner{
+.banner {
   position: relative;
- 
 
-  > img{
+  > img {
     width: 100%;
     height: auto;
   }
@@ -98,13 +99,12 @@ section.banner{
   }
 }
 
-section.main-text{
- 
+.main-text {
   background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
   position: relative;
-  margin-top: 0px;
   margin-top: -120px;
-  &::before{
+
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -117,8 +117,8 @@ section.main-text{
     opacity: 1;
     z-index: 5;
   }
- 
-  .main-text--banner{
+
+  @include e(banner) {
     background: url('../img/golt-text-full.png') no-repeat;
     background-size: contain;
     background-position: top;
@@ -126,6 +126,4 @@ section.main-text{
     height: 800px;
     position: relative;
   }
-
- 
 }
