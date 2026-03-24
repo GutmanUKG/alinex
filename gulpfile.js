@@ -8,7 +8,6 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const fileinclude = require('gulp-file-include');
 const htmlmin = require('gulp-htmlmin');
-const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const svgSprite = require('gulp-svg-sprite');
 const plumber = require('gulp-plumber');
@@ -23,7 +22,7 @@ const paths = {
     html: 'src/*.html',
     scss: 'src/scss/main.scss',
     js: 'src/js/**/*.js',
-    img: 'src/img/**/*.{jpg,jpeg,png,gif,webp}',
+    img: 'src/img/**/*.{jpg,jpeg,png,gif,webp,svg}',
     svg: 'src/svg/**/*.svg',
     fonts: 'src/fonts/**/*',
     assets: 'src/assets/**/*'
@@ -32,7 +31,7 @@ const paths = {
     html: 'src/**/*.html',
     scss: 'src/scss/**/*.scss',
     js: 'src/js/**/*.js',
-    img: 'src/img/**/*.{jpg,jpeg,png,gif,webp}',
+    img: 'src/img/**/*.{jpg,jpeg,png,gif,webp,svg}',
     svg: 'src/svg/**/*.svg'
   },
   dist: {
@@ -116,16 +115,10 @@ const scripts = () => {
     .pipe(browserSync.stream());
 };
 
-// Images task
+// Images task - simple copy without processing
 const images = () => {
-  return gulp.src(paths.src.img)
-    .pipe(handleError('Images'))
+  return gulp.src(paths.src.img, { encoding: false })
     .pipe(newer(paths.dist.img))
-    .pipe(gulpif(isProd, imagemin([
-      imagemin.mozjpeg({ quality: 80, progressive: true }),
-      imagemin.optipng({ optimizationLevel: 5 }),
-      imagemin.gifsicle({ interlaced: true })
-    ])))
     .pipe(gulp.dest(paths.dist.img))
     .pipe(browserSync.stream());
 };

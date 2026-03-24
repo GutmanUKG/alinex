@@ -4,26 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alinex</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,400;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Main styles -->
   <link rel="stylesheet" href="css/style.min.css">
-</head>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 <body>
-
-  <div class="container py-5">
-    <h1 class="animate__animated animate__fadeInDown">Hello World!</h1>
-    <p class="lead">Bootstrap + SCSS + Animate.css</p>
-
-    <button class="btn btn-primary animate__animated animate__pulse animate__infinite">
-      Button
-    </button>
-
-    <!-- SVG Sprite Usage Example -->
-    <div class="mt-4">
-      <svg class="icon" width="24" height="24">
-        <use xlink:href="img/sprite.svg#arrow-right"></use>
+  <header>
+    <div class="container">
+      <div class="row d-flex align-items-center justify-content-between">
+         <a href="" class="header__logo">
+          <svg width="153" height="73">
+          <use xlink:href="img/sprite.svg#logo"></use>
       </svg>
+      </a>
+      <div class="header__menu">
+        <ul>
+          <li><a href="">Условия</a></li>
+          <li><a href="">Продукция</a></li>
+          <li><a href="">Карта филиалов</a></li>
+          <li><a href="">Правила акции</a></li>
+        </ul>
+      </div>
+      </div>
     </div>
-  </div>
+  </header>
+  <main>
+    <section class="banner">
+      <img src="img/main_banner.png" alt="banner">
 
+      <!-- Parallax coins -->
+      <div class="coin coin--1" data-parallax="0.3">
+        <img src="img/coin_1.svg" alt="">
+      </div>
+      <div class="coin coin--2" data-parallax="0.2">
+        <img src="img/coin_2.svg" alt="">
+      </div>
+      <div class="coin coin--3" data-parallax="0.1">
+        <img src="img/coin_3.svg" alt="">
+      </div>
+      <div class="coin coin--4" data-parallax="0.05">
+        <img src="img/coin_4.svg" alt="">
+      </div>
+    </section>
+
+    <section class="main-text">
+     <div class="container">
+       <div class="main-text--banner"></div>
+       <!-- Parallax coins -->
+      <div class="coin coin--1" data-parallax="0.3">
+        <img src="img/coin_6.svg" alt="">
+      </div>
+  
+      </div>
+     </div>
+    </section>
+  </main>
+  <footer>
+
+  </footer>
   <script src="js/main.min.js"></script>
 </body>
 </html>

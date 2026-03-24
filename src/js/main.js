@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initHeader();
   initAnimateOnScroll();
   initSmoothScroll();
+  initParallax();
 });
 
 /**
@@ -106,6 +107,43 @@ function createSvgIcon(name, className = '') {
 
   svg.appendChild(use);
   return svg;
+}
+
+/**
+ * Parallax effect for coins
+ * Add data-parallax="0.3" to element (0.1 = slow, 0.5 = fast)
+ */
+function initParallax() {
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  if (!parallaxElements.length) return;
+
+  function updateParallax() {
+    const scrollY = window.scrollY;
+
+    parallaxElements.forEach(element => {
+      const speed = parseFloat(element.dataset.parallax) || 0.2;
+      const yOffset = scrollY * speed;
+
+      // Добавляем небольшое движение по X для эффекта
+      const xOffset = Math.sin(scrollY * 0.01) * 10 * speed;
+
+      element.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+    });
+  }
+
+  // Throttle для производительности
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  updateParallax();
 }
 
 // Export for use in other modules

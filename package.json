@@ -11,13 +11,13 @@
     "browser-sync": "^3.0.2",
     "del": "^7.1.0",
     "gulp": "^5.0.0",
-    "gulp-autoprefixer": "^9.0.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
-    "gulp-imagemin": "^9.1.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
@@ -29,6 +29,8 @@
     "sass": "^1.77.0"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/montserrat": "^5.2.8",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3"
   }

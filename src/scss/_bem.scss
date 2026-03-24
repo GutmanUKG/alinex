@@ -1,0 +1,79 @@
+// BEM Mixins
+// Usage:
+// .block {
+//   @include e(element) { ... }
+//   @include m(modifier) { ... }
+// }
+
+// Element: .block__element
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// Modifier: .block--modifier
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+// Element with modifier: .block__element--modifier
+@mixin em($element, $modifier) {
+  &__#{$element}--#{$modifier} {
+    @content;
+  }
+}
+
+// State: .block.is-active, .block.has-error
+@mixin state($state) {
+  &.#{$state} {
+    @content;
+  }
+}
+
+// Shorthand aliases
+@mixin element($element) { @include e($element) { @content; } }
+@mixin modifier($modifier) { @include m($modifier) { @content; } }
+
+// ===========================================
+// EXAMPLE USAGE:
+// ===========================================
+//
+// .card {
+//   background: white;
+//
+//   @include e(header) {
+//     padding: 20px;
+//   }
+//
+//   @include e(title) {
+//     font-size: 24px;
+//
+//     @include m(large) {
+//       font-size: 32px;
+//     }
+//   }
+//
+//   @include e(body) {
+//     padding: 15px;
+//   }
+//
+//   @include m(featured) {
+//     border: 2px solid gold;
+//   }
+//
+//   @include state(is-loading) {
+//     opacity: 0.5;
+//   }
+// }
+//
+// Compiles to:
+// .card { background: white; }
+// .card__header { padding: 20px; }
+// .card__title { font-size: 24px; }
+// .card__title--large { font-size: 32px; }
+// .card__body { padding: 15px; }
+// .card--featured { border: 2px solid gold; }
+// .card.is-loading { opacity: 0.5; }
