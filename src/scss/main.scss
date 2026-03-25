@@ -256,7 +256,7 @@ body{
     }
 
   }
-  .info-banner{
+  @include e(banner) {
     width: 100%;
   }
 }
@@ -362,31 +362,28 @@ body{
   }
 }
 
-section.map{
+.map {
   background: #000;
   padding-top: 130px;
   padding-bottom: 100px;
-  .section-title--light{
-    text-align: center;
 
-  }
- img{
-
+  img {
     width: 100%;
   }
-  .map--descr{
+
+  @include e(descr) {
     font-family: var(--second-family);
     font-weight: 400;
-    font-size: 24px;
+    @include fluid-font(14, 24);
     text-align: center;
     color: #fff;
     margin-bottom: 100px;
   }
 
-  .map--title_link{
+  @include e(title) {
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 40px;
+    @include fluid-font(24, 40);
     text-align: center;
     letter-spacing: -3px;
     background: linear-gradient(90deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
@@ -395,14 +392,15 @@ section.map{
     -webkit-text-fill-color: transparent;
     margin-bottom: 30px;
   }
-  .map-btn{
+
+  @include e(btn) {
     background: linear-gradient(90deg, #ff6c00 0%, #bc4f00 100%);
     border-radius: 16px;
     padding: 15px 40px;
     text-decoration: none;
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 28px;
+    @include fluid-font(18, 28);
     text-align: center;
     color: #fff;
     margin: 0 auto;
@@ -412,27 +410,30 @@ section.map{
   }
 }
 
-footer{
+.footer {
   padding: 90px 0 100px 0;
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
-  .footer--logo{
+
+  @include e(logo) {
     margin-bottom: 60px;
   }
 
-  .footer--social{
+  @include e(social) {
     display: flex;
     align-items: center;
     gap: 30px;
     margin-top: 70px;
-    a{
+
+    a {
       text-decoration: none;
       display: block;
     }
   }
-  .footer--site{
+
+  @include e(site) {
     font-family: var(--font-family);
     font-weight: 500;
-    font-size: 40px;
+    @include fluid-font(24, 40);
     text-align: right;
     letter-spacing: -2px;
     color: #000;
