@@ -111,7 +111,8 @@ function createSvgIcon(name, className = '') {
 
 /**
  * Parallax effect for coins
- * Add data-parallax="0.3" to element (0.1 = slow, 0.5 = fast)
+ * data-parallax="0.3" - скорость
+ * data-parallax-rotate="true" - вращение
  */
 function initParallax() {
   const parallaxElements = document.querySelectorAll('[data-parallax]');
@@ -120,18 +121,24 @@ function initParallax() {
   function updateParallax() {
     const scrollY = window.scrollY;
 
-    parallaxElements.forEach(element => {
+    parallaxElements.forEach((element, index) => {
       const speed = parseFloat(element.dataset.parallax) || 0.2;
+      const shouldRotate = element.dataset.parallaxRotate === 'true';
+
+      // Смещение по Y
       const yOffset = scrollY * speed;
 
-      // Добавляем небольшое движение по X для эффекта
-      const xOffset = Math.sin(scrollY * 0.01) * 10 * speed;
+      // Плавное движение по X
+      const xOffset = Math.sin(scrollY * 0.005 + index) * 10;
 
-      element.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+      // Вращение
+      const rotation = shouldRotate ? scrollY * 0.03 * speed : 0;
+
+      element.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${rotation}deg)`;
     });
   }
 
-  // Throttle для производительности
+  // Throttle
   let ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {

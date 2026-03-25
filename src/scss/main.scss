@@ -57,48 +57,61 @@ body{
   }
 }
 
+// Свечение монет
+@keyframes coinGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(255, 188, 43, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 188, 43, 0.5));
+  }
+}
+
 // Parallax coins
 .coin {
   position: absolute;
   pointer-events: none;
   z-index: 10;
-  transition: transform 0.1s ease-out;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 
   img {
     width: 100%;
     height: auto;
+    animation: coinGlow 3s ease-in-out infinite;
   }
 
   // Coin 1 - верхняя левая
   &--1 {
     top: 5%;
-    left: 0%;
+    left: -2%;
     width: 250px;
   }
 
   // Coin 2 - верхняя правая
   &--2 {
     top: 0%;
-    right: 0%;
+    right: -2%;
     width: 200px;
   }
 
-  // Coin 3 - добавь по аналогии
+  // Coin 3
   &--3 {
     top: 80%;
-    left: 0%;
+    left: -3%;
     width: 180px;
-      z-index: 500;
+    z-index: 500;
   }
 
-  // Coin 4 - добавь по аналогии
+  // Coin 4
   &--4 {
     top: 100%;
-    right: 0%;
+    right: -3%;
     width: 220px;
     z-index: 500;
   }
 }
+
 
 .main-text {
   background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
@@ -240,7 +253,9 @@ body{
     }
 
   }
-
+  .info-banner{
+    width: 100%;
+  }
 }
 
 .counter {
