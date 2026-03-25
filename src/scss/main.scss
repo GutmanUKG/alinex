@@ -4,6 +4,9 @@
 // BEM helpers
 @import 'bem';
 
+// Fluid typography
+@import 'fluid-typography';
+
 // Your styles below
 
 :root {
@@ -40,7 +43,7 @@ body{
         text-decoration: none;
         font-family: var(--pt-family);
         font-weight: 600;
-        font-size: 24px;
+        @include fluid-font(16, 24); // 24px → 16px
         color: #000;
         letter-spacing: -1px;
       }
@@ -144,7 +147,7 @@ body{
 .section-title {
   font-family: var(--font-family);
   font-weight: 600;
-  font-size: 64px;
+  @include fluid-font(32, 64); // 64px → 32px
   text-align: center;
   color: #000;
   letter-spacing: -3px;
@@ -179,14 +182,14 @@ body{
         .step__title{
           font-family: var(--second-family);
           font-weight: 500;
-          font-size: 64px;
+          @include fluid-font(32, 64); // 64px → 32px
           text-align: center;
           color: #000;
           letter-spacing: -6px;
         }
         .step__desc{
           font-family: var(--second-family);
-          font-size: 24px;
+          @include fluid-font(14, 24); // 24px → 14px
           letter-spacing: -2px;
         }
       }
@@ -263,14 +266,14 @@ body{
   position: relative;
   padding-bottom: 80px;
   .section-title--light{
-    font-size: 48px;
+    @include fluid-font(24, 48); // 48px → 24px
     margin-bottom: 130px;
   }
 
   h4{
     font-family: var(--font-family);
     font-weight: 600;
-    font-size: 64px;
+    @include fluid-font(32, 64); // 64px → 32px
     text-align: center;
     background: linear-gradient(90deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
     background-clip: text;
@@ -279,7 +282,7 @@ body{
     letter-spacing: -2px;
     margin-bottom: 75px;
     span{
-      font-size: 96px;
+      @include fluid-font(48, 96); // 96px → 48px
     }
 
   }
@@ -302,7 +305,7 @@ body{
         display: block;
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 128px;
+        @include fluid-font(64, 128); // 128px → 64px
         text-align: center;
         background: linear-gradient(179deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
         background-clip: text;
@@ -318,7 +321,7 @@ body{
         left: 50%;
         font-family: var(--second-family);
         font-weight: 400;
-        font-size: 32px;
+        @include fluid-font(18, 32); // 32px → 18px
         text-align: center;
         color: #fff;
         transform: translate(-50%, 50%);

@@ -1,0 +1,85 @@
+// Fluid Typography
+// Динамический расчёт размера шрифта от 425px до 1920px
+
+$min-width: 425;
+$max-width: 1920;
+
+// Миксин для fluid font-size
+// Использование: @include fluid-font(16, 24); // от 16px до 24px
+@mixin fluid-font($min-size, $max-size) {
+  // Минимальный размер на маленьких экранах
+  font-size: #{$min-size}px;
+
+  // Fluid размер между min и max width
+  @media (min-width: #{$min-width}px) {
+    font-size: clamp(
+      #{$min-size}px,
+      calc(#{$min-size}px + (#{$max-size} - #{$min-size}) * ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))),
+      #{$max-size}px
+    );
+  }
+
+  // Максимальный размер на больших экранах
+  @media (min-width: #{$max-width}px) {
+    font-size: #{$max-size}px;
+  }
+}
+
+// Короткий вариант с clamp (современные браузеры)
+// Использование: @include fluid(font-size, 16, 24);
+@mixin fluid($property, $min-value, $max-value) {
+  #{$property}: clamp(
+    #{$min-value}px,
+    calc(#{$min-value}px + (#{$max-value} - #{$min-value}) * ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))),
+    #{$max-value}px
+  );
+}
+
+// Предустановленные размеры шрифтов
+// Можешь изменить значения под свой дизайн
+
+// Заголовки
+@mixin h1-fluid {
+  @include fluid-font(32, 96); // 32px на 425px → 96px на 1920px
+}
+
+@mixin h2-fluid {
+  @include fluid-font(24, 64); // 24px на 425px → 64px на 1920px
+}
+
+@mixin h3-fluid {
+  @include fluid-font(20, 48);
+}
+
+@mixin h4-fluid {
+  @include fluid-font(18, 32);
+}
+
+// Текст
+@mixin text-large {
+  @include fluid-font(18, 24);
+}
+
+@mixin text-base {
+  @include fluid-font(14, 18);
+}
+
+@mixin text-small {
+  @include fluid-font(12, 14);
+}
+
+// ===========================================
+// ПРИМЕРЫ ИСПОЛЬЗОВАНИЯ:
+// ===========================================
+//
+// .section-title {
+//   @include fluid-font(24, 64);
+//   // или
+//   @include h2-fluid;
+// }
+//
+// .card__text {
+//   @include fluid-font(14, 18);
+//   @include fluid(line-height, 20, 28);
+//   @include fluid(margin-bottom, 10, 20);
+// }
