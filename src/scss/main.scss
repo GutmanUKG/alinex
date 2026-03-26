@@ -408,6 +408,105 @@ body{
     width: max-content;
     letter-spacing: 1px;
   }
+
+  .map-wrapper{
+    position: relative;
+    .map-dots{
+      .dot{
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 15px;
+        text-align: center;
+        color: #000;
+        height: 20px;
+        width: 20px;
+
+        box-sizing: border-box;
+        background: #fff;
+        position: absolute;
+        opacity: 0;
+        transition: .3s all;
+        cursor: pointer;
+        &:hover{
+          opacity: 1;
+          width: 100%;
+          max-width: 150px;
+          padding: 5px;
+          height: max-content;
+        }
+        &--almaty{
+          top: 71.5%;
+          left: 68.5%;
+        }
+        &--astana{
+          top: 38%;
+          left: 58.5%;
+        }
+        &--aktay{
+          top: 70%;
+          left: 17.5%;
+        }
+        &--aktobe{
+          top: 39.5%;
+          left: 29.5%;
+        }
+        &--atyrau{
+          top: 51%;
+          left: 18.8%;
+        }
+        &--karaganda{
+          top: 46.5%;
+          left: 65.5%;
+        }
+        &--kokhetay{
+          top: 26.5%;
+          left: 55%;
+        }
+        &--kostanay{
+          top: 19.5%;
+          left: 43.8%;
+        }
+        &--kyzlodrda{
+          top: 63.5%;
+          left: 46.8%;
+        }
+        &--pavlodar{
+          top: 26.5%;
+          left: 69%;
+        }
+        &--petropavlosk{
+          top: 13.5%;
+          left: 53.8%;
+        }
+        &--semey{
+          top: 39%;
+          left: 76.2%;
+        }
+        &--taraz{
+          left: 61%;
+          top: 75%;
+        }
+        &--uralsk{
+          top: 232px;
+          left: 237px;
+        }
+        &--oskemen{
+          top: 40%;
+          left: 83%;
+        }
+        &--shmkent{
+          top: 78%;
+          left: 54.5%;
+        }
+        &--taldyk{
+          top: 65.5%;
+          left: 74.5%;
+        }
+      }
+    }
+  }
+
+
 }
 
 .footer {

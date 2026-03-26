@@ -14,7 +14,7 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const gulpif = require('gulp-if');
 const browserSync = require('browser-sync').create();
-const { deleteAsync } = require('del');
+const del = require('del');
 
 // Paths
 const paths = {
@@ -61,7 +61,7 @@ const handleError = (title) => {
 
 // Clean dist folder
 const clean = () => {
-  return deleteAsync([paths.clean]);
+  return del([paths.clean]);
 };
 
 // HTML task
@@ -159,13 +159,13 @@ const svg = () => {
 
 // Fonts task
 const fonts = () => {
-  return gulp.src(paths.src.fonts)
+  return gulp.src(paths.src.fonts, { allowEmpty: true })
     .pipe(gulp.dest(paths.dist.fonts));
 };
 
 // Assets task (copy as-is)
 const assets = () => {
-  return gulp.src(paths.src.assets)
+  return gulp.src(paths.src.assets, { allowEmpty: true })
     .pipe(gulp.dest(paths.dist.assets));
 };
 
