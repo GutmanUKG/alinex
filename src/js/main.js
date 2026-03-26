@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initAnimateOnScroll();
   initSmoothScroll();
   initParallax();
+  initCounter();
 });
 
 /**
@@ -151,6 +152,72 @@ function initParallax() {
   });
 
   updateParallax();
+}
+
+/**
+ * Counter animation on scroll
+ * data-target на .counter__increment — целевое число
+ */
+function initCounter() {
+  var counter = document.querySelector('.counter__increment');
+  if (!counter) return;
+
+  var target = parseInt(counter.dataset.target, 10);
+  if (isNaN(target)) return;
+
+  var spans = counter.querySelectorAll('.counter__digit span');
+  if (!spans.length) return;
+
+  var totalDigits = spans.length;
+  var animated = false;
+  var duration = 2500;
+
+  function setDigits(number) {
+    var str = String(number).padStart(totalDigits, '0');
+    for (var i = 0; i < totalDigits; i++) {
+      spans[i].textContent = str[i];
+    }
+  }
+
+  function easeOutExpo(t) {
+    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  }
+
+  function animate() {
+    if (animated) return;
+    animated = true;
+
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var elapsed = timestamp - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var easedProgress = easeOutExpo(progress);
+      var current = Math.round(easedProgress * target);
+
+      setDigits(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setDigits(target);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animate();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(counter);
 }
 
 // Export for use in other modules
