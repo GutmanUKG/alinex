@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Fluid Typography
 // Динамический расчёт размера шрифта от 425px до 1920px
 
@@ -27,12 +29,24 @@ $max-width: 1920;
 
 // Короткий вариант с clamp (современные браузеры)
 // Использование: @include fluid(font-size, 16, 24);
+// Поддерживает отрицательные значения (напр. fluid(margin-top, -50, -120))
 @mixin fluid($property, $min-value, $max-value) {
+  $clamp-min: math.min($min-value, $max-value);
+  $clamp-max: math.max($min-value, $max-value);
   #{$property}: clamp(
-    #{$min-value}px,
+    #{$clamp-min}px,
     calc(#{$min-value}px + (#{$max-value} - #{$min-value}) * ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))),
-    #{$max-value}px
+    #{$clamp-max}px
   );
+}
+
+// Вспомогательный миксин для fluid padding (4 значения)
+// Использование: @include fluid-padding(60, 130, 30, 70, 30, 70, 30, 70);
+@mixin fluid-padding($top-min, $top-max, $right-min, $right-max, $bottom-min, $bottom-max, $left-min, $left-max) {
+  @include fluid(padding-top, $top-min, $top-max);
+  @include fluid(padding-right, $right-min, $right-max);
+  @include fluid(padding-bottom, $bottom-min, $bottom-max);
+  @include fluid(padding-left, $left-min, $left-max);
 }
 
 // Предустановленные размеры шрифтов

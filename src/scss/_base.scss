@@ -73,15 +73,8 @@ button {
 
 // Section padding
 .section {
-  padding: 60px 0;
-
-  @media (min-width: 768px) {
-    padding: 80px 0;
-  }
-
-  @media (min-width: 992px) {
-    padding: 100px 0;
-  }
+  @include fluid(padding-top, 30, 100);
+  @include fluid(padding-bottom, 30, 100);
 }
 
 // Visually hidden (for accessibility)

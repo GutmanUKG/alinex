@@ -25,7 +25,8 @@ body{
 .header {
   display: flex;
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
-  padding: 30px 0;
+  @include fluid(padding-top, 15, 30);
+  @include fluid(padding-bottom, 15, 30);
 
   @include e(logo) {
     width: max-content;
@@ -40,7 +41,7 @@ body{
       padding: 0;
       margin: 0;
       list-style: none;
-      gap: 80px;
+      @include fluid(gap, 30, 80);
 
       li a {
         text-decoration: none;
@@ -96,21 +97,21 @@ body{
   &--1 {
     top: 5%;
     left: -2%;
-    width: 250px;
+    @include fluid(width, 100, 250);
   }
 
   // Coin 2 - верхняя правая
   &--2 {
     top: 0%;
     right: -2%;
-    width: 200px;
+    @include fluid(width, 80, 200);
   }
 
   // Coin 3
   &--3 {
     top: 80%;
     left: -3%;
-    width: 180px;
+    @include fluid(width, 70, 180);
     z-index: 500;
   }
 
@@ -118,7 +119,7 @@ body{
   &--4 {
     top: 100%;
     right: -3%;
-    width: 220px;
+    @include fluid(width, 90, 220);
     z-index: 500;
   }
 }
@@ -127,7 +128,7 @@ body{
 .main-text {
   background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
   position: relative;
-  margin-top: -120px;
+  @include fluid(margin-top, -50, -120);
 
   &::before {
     content: '';
@@ -148,7 +149,7 @@ body{
     background-size: contain;
     background-position: top;
     z-index: 500;
-    height: 800px;
+    @include fluid(height, 300, 800);
     position: relative;
   }
 }
@@ -166,25 +167,26 @@ body{
 }
 .steps{
   background: linear-gradient(180deg, #ff6c00 0%, #000 100%);
-  padding: 80px 0;
+  @include fluid(padding-top, 40, 80);
+  @include fluid(padding-bottom, 40, 80);
   position: relative;
   .steps__list{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    @include fluid(gap, 10, 20);
 
     .step__item{
       position: relative;
-      width: 406px;
-      height: 483px;
+      aspect-ratio: 406 / 483;
+      height: auto;
       display: flex;
       align-items: start;
       justify-content: center;
-      padding: 130px 70px 70px 70px;
+      @include fluid-padding(60, 130, 30, 70, 30, 70, 30, 70);
       .step__icon{
         position: absolute;
-        top: 50px;
-        left: 50px;
+        @include fluid(top, 20, 50);
+        @include fluid(left, 20, 50);
       }
       .step__text{
         .step__title{
@@ -230,7 +232,7 @@ body{
     &--1 {
       top: 0px;
       left: 0;
-      width: 250px;
+      @include fluid(width, 100, 250);
     }
   }
 }
@@ -255,14 +257,14 @@ body{
     &--1 {
       top: 0;
       left: 0;
-      width: 250px;
+      @include fluid(width, 100, 250);
     }
 
     // Coin 2 - верхняя правая
     &--2 {
       top: 0;
       right: 0;
-      width: 200px;
+      @include fluid(width, 80, 200);
     }
 
   }
@@ -274,10 +276,10 @@ body{
 .counter {
   background: #000;
   position: relative;
-  padding-bottom: 80px;
+  @include fluid(padding-bottom, 40, 80);
   .section-title--light{
     @include fluid-font(24, 48); // 48px → 24px
-    margin-bottom: 130px;
+    @include fluid(margin-bottom, 50, 130);
   }
 
   h4{
@@ -290,7 +292,7 @@ body{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -2px;
-    margin-bottom: 75px;
+    @include fluid(margin-bottom, 30, 75);
     span{
       @include fluid-font(48, 96); // 96px → 48px
     }
@@ -300,12 +302,12 @@ body{
   .counter__increment{
     display: flex;
     align-items: center;
-    gap: 20px;
+    @include fluid(gap, 10, 20);
 
     .counter__digit{
       background: url("../img/inc_bg.png")center/contain no-repeat;
-      width: 121px;
-      height: 125px;
+      @include fluid(width, 60, 121);
+      @include fluid(height, 62, 125);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -354,19 +356,19 @@ body{
     &--1 {
       top: 0;
       left: 0;
-      width: 250px;
+      @include fluid(width, 100, 250);
     }
 
     // Coin 2 - верхняя правая
     &--2 {
       top: 0;
       right: 0;
-      width: 200px;
+      @include fluid(width, 80, 200);
     }
     &--3 {
       top: 0;
       right: 0;
-      width: 200px;
+      @include fluid(width, 80, 200);
     }
 
   }
@@ -376,8 +378,8 @@ section{
 }
 .map {
   background: #000;
-  padding-top: 130px;
-  padding-bottom: 100px;
+  @include fluid(padding-top, 50, 130);
+  @include fluid(padding-bottom, 40, 100);
   position: relative;
   img {
     width: 100%;
@@ -389,7 +391,7 @@ section{
     @include fluid-font(14, 24);
     text-align: center;
     color: #fff;
-    margin-bottom: 100px;
+    @include fluid(margin-bottom, 40, 100);
   }
 
   @include e(title) {
@@ -402,13 +404,16 @@ section{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
+    @include fluid(margin-bottom, 15, 30);
   }
 
   @include e(btn) {
     background: linear-gradient(90deg, #ff6c00 0%, #bc4f00 100%);
-    border-radius: 16px;
-    padding: 15px 40px;
+    @include fluid(border-radius, 10, 16);
+    @include fluid(padding-top, 10, 15);
+    @include fluid(padding-bottom, 10, 15);
+    @include fluid(padding-right, 20, 40);
+    @include fluid(padding-left, 20, 40);
     text-decoration: none;
     font-family: var(--font-family);
     font-weight: 500;
@@ -598,18 +603,19 @@ section{
 }
 
 .footer {
-  padding: 50px 0 50px 0;
+  @include fluid(padding-top, 25, 50);
+  @include fluid(padding-bottom, 25, 50);
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
 
   @include e(logo) {
-    margin-bottom: 30px;
+    @include fluid(margin-bottom, 15, 30);
   }
 
   @include e(social) {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 40px;
+    @include fluid(gap, 6, 10);
+    @include fluid(margin-top, 20, 40);
 
     a {
       text-decoration: none;
@@ -624,7 +630,7 @@ section{
     text-align: right;
     letter-spacing: -2px;
     color: #000;
-    margin-top: 30px;
+    @include fluid(margin-top, 15, 30);
     text-decoration: none;
   }
 }
