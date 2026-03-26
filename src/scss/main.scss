@@ -449,80 +449,120 @@ body{
       .dot{
         font-family: var(--second-family);
         font-weight: 400;
-        font-size: 15px;
+        font-size: 0;
         text-align: center;
         color: #000;
-        height: 20px;
-        width: 20px;
-
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
         box-sizing: border-box;
-        background: #fff;
+        background: radial-gradient(circle, #fff 0%, #ebe6dd 40%, #fffefd 100%);
+        border: none;
         position: absolute;
-        opacity: 0;
-        transition: .3s all;
         cursor: pointer;
-        &:hover{
-          opacity: 1;
-          width: 100%;
-          max-width: 150px;
-          padding: 5px;
-          height: max-content;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        box-shadow:
+          0 0 6px 2px rgba(255, 108, 0, 0.8),
+          0 0 16px 6px rgba(255, 108, 0, 0.4),
+          0 0 30px 10px rgba(255, 108, 0, 0.15);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 30px;
+          height: 30px;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+
+        &::after {
+          content: attr(data-city);
+          position: absolute;
+          bottom: calc(100% + 14px);
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(0, 0, 0, 0.85);
+          color: #fff;
+          font-size: 13px;
+          padding: 6px 12px;
+          border-radius: 6px;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.25s ease;
+          border: 1px solid rgba(255, 108, 0, 0.4);
+        }
+
+        &:hover {
+          z-index: 10;
+          background: radial-gradient(circle, #fff 10%, #ffde6b 50%, #ff6c00 100%);
+          box-shadow:
+            0 0 8px 3px rgba(255, 108, 0, 0.9),
+            0 0 20px 8px rgba(255, 108, 0, 0.5),
+            0 0 40px 15px rgba(255, 108, 0, 0.2);
+
+          &::after {
+            opacity: 1;
+          }
         }
         &--almaty{
-          top: 71.5%;
-          left: 68.5%;
+          top: 72.5%;
+          left: 69.3%;
         }
         &--astana{
-          top: 38%;
-          left: 58.5%;
+          top: 39.5%;
+          left: 59.4%;
         }
         &--aktay{
-          top: 70%;
-          left: 17.5%;
+          top: 71.2%;
+          left: 18%;
         }
         &--aktobe{
-          top: 39.5%;
-          left: 29.5%;
+          top: 41%;
+          left: 30.3%;
         }
         &--atyrau{
-          top: 51%;
-          left: 18.8%;
+          top: 52.4%;
+          left: 19.5%;
         }
         &--karaganda{
-          top: 46.5%;
-          left: 65.5%;
+          top: 48%;
+          left: 66.3%;
         }
         &--kokhetay{
-          top: 26.5%;
-          left: 55%;
+          top: 28%;
+          left: 55.8%;
         }
         &--kostanay{
-          top: 19.5%;
-          left: 43.8%;
+          top: 21%;
+          left: 44.5%;
         }
         &--kyzlodrda{
-          top: 63.5%;
-          left: 46.8%;
+          top: 64.8%;
+          left: 47.5%;
         }
         &--pavlodar{
-          top: 26.5%;
-          left: 69%;
+          top: 27.8%;
+          left: 70%;
         }
         &--petropavlosk{
-          top: 13.5%;
-          left: 53.8%;
+          top: 15%;
+          left: 54.5%;
         }
         &--semey{
-          top: 39%;
-          left: 76.2%;
+          top: 40%;
+          left: 77%;
         }
         &--taraz{
-          left: 61%;
-          top: 75%;
+          left: 61.5%;
+          top: 76%;
         }
         &--uralsk{
-          top: 232px;
-          left: 237px;
+          top: 34%;
+          left: 19%;
         }
         &--oskemen{
           top: 40%;
@@ -544,18 +584,18 @@ body{
 }
 
 .footer {
-  padding: 90px 0 100px 0;
+  padding: 50px 0 50px 0;
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
 
   @include e(logo) {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 
   @include e(social) {
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin-top: 70px;
+    gap: 10px;
+    margin-top: 40px;
 
     a {
       text-decoration: none;
@@ -570,7 +610,7 @@ body{
     text-align: right;
     letter-spacing: -2px;
     color: #000;
-    margin-top: 65px;
+    margin-top: 30px;
     text-decoration: none;
   }
 }
