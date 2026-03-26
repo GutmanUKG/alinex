@@ -57,9 +57,14 @@ body{
 .banner {
   position: relative;
   height: 100vh;
+  overflow: hidden;
+  background: #000;
   > img {
     width: 100%;
-    height: auto;
+    height: 120%;
+    object-fit: cover;
+    object-position: center top;
+    will-change: transform;
   }
 }
 
@@ -366,12 +371,14 @@ body{
 
   }
 }
-
+section{
+  position: relative;
+}
 .map {
   background: #000;
   padding-top: 130px;
   padding-bottom: 100px;
-
+  position: relative;
   img {
     width: 100%;
   }
@@ -579,7 +586,14 @@ body{
       }
     }
   }
-
+  .coin{
+    &--3{
+      top: 50%;
+    }
+    &--4{
+      top: 70%;
+    }
+  }
 
 }
 

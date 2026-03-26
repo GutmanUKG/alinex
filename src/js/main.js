@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initAnimateOnScroll();
   initSmoothScroll();
   initParallax();
+  initBannerParallax();
   initCounter();
 });
 
@@ -30,6 +31,42 @@ function initHeader() {
 
   window.addEventListener('scroll', updateHeader);
   updateHeader();
+}
+
+/**
+ * Banner parallax — image moves slower than scroll for depth effect
+ */
+function initBannerParallax() {
+  var banner = document.querySelector('.banner');
+  if (!banner) return;
+  var img = banner.querySelector('img');
+  if (!img) return;
+
+  var ticking = false;
+
+  function update() {
+    var rect = banner.getBoundingClientRect();
+    var bannerHeight = banner.offsetHeight;
+    // progress: 0 (баннер вверху вьюпорта) → 1 (баннер ушёл вверх)
+    var progress = -rect.top / bannerHeight;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Сдвигаем картинку вверх на 20% от высоты (т.к. она на 20% больше)
+    var yShift = progress * -20;
+    img.style.transform = 'translateY(' + yShift + '%)';
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        update();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  update();
 }
 
 /**
@@ -119,23 +156,33 @@ function initParallax() {
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   if (!parallaxElements.length) return;
 
+  function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+  }
+
   function updateParallax() {
-    const scrollY = window.scrollY;
+    var viewportHeight = window.innerHeight;
 
-    parallaxElements.forEach((element, index) => {
-      const speed = parseFloat(element.dataset.parallax) || 0.2;
-      const shouldRotate = element.dataset.parallaxRotate === 'true';
+    parallaxElements.forEach(function(element, index) {
+      var speed = parseFloat(element.dataset.parallax) || 0.2;
+      var shouldRotate = element.dataset.parallaxRotate === 'true';
+      var maxOffset = parseFloat(element.dataset.parallaxMax) || 50;
 
-      // Смещение по Y
-      const yOffset = scrollY * speed;
+      // Позиция секции относительно вьюпорта
+      var parent = element.parentElement;
+      var rect = parent.getBoundingClientRect();
+      var relativeScroll = -(rect.top - viewportHeight / 2);
+
+      // Смещение по Y — ограничено maxOffset
+      var yOffset = clamp(relativeScroll * speed, -maxOffset, maxOffset);
 
       // Плавное движение по X
-      const xOffset = Math.sin(scrollY * 0.005 + index) * 10;
+      var xOffset = Math.sin(relativeScroll * 0.005 + index) * 10;
 
       // Вращение
-      const rotation = shouldRotate ? scrollY * 0.03 * speed : 0;
+      var rotation = shouldRotate ? relativeScroll * 0.03 * speed : 0;
 
-      element.style.transform = `translate(${xOffset}px, ${yOffset}px) rotate(${rotation}deg)`;
+      element.style.transform = 'translate(' + xOffset + 'px, ' + yOffset + 'px) rotate(' + rotation + 'deg)';
     });
   }
 
