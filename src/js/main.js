@@ -2,6 +2,18 @@
  * Main JavaScript file
  */
 
+// Скрыть прелоадер после полной загрузки
+window.addEventListener('load', function() {
+  var preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('hidden');
+    // Удалить из DOM после анимации
+    setTimeout(function() {
+      preloader.remove();
+    }, 400);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize all modules
   initHeader();
