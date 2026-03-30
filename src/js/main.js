@@ -50,6 +50,9 @@ function initHeader() {
  * Banner parallax — image moves slower than scroll for depth effect
  */
 function initBannerParallax() {
+  // Отключаем на мобильных для плавности скролла
+  if (window.innerWidth < 768) return;
+
   var banner = document.querySelector('.banner');
   if (!banner) return;
   var img = banner.querySelector('img');
@@ -166,6 +169,9 @@ function createSvgIcon(name, className = '') {
  * data-parallax-rotate="true" - вращение
  */
 function initParallax() {
+  // Отключаем параллакс на мобильных (< 768px) - слишком много событий скролла вызывают тряску
+  if (window.innerWidth < 768) return;
+
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   if (!parallaxElements.length) return;
 
