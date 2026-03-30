@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
   initParallax();
   initBannerParallax();
   initCounter();
+
+  initSliderConditions();
+  initBurger();
+
+
+
+
+
+
+
+
+
 });
 
 /**
@@ -156,49 +168,61 @@ function initParallax() {
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   if (!parallaxElements.length) return;
 
-  function clamp(val, min, max) {
-    return Math.max(min, Math.min(max, val));
-  }
+  var coinShake = 7;
+  var coinDamping = 0.92;
+  var coinStiffness = 0.04;
+  var running = false;
 
-  function updateParallax() {
-    var viewportHeight = window.innerHeight;
-
-    parallaxElements.forEach(function(element, index) {
-      var speed = parseFloat(element.dataset.parallax) || 0.2;
-      var shouldRotate = element.dataset.parallaxRotate === 'true';
-      var maxOffset = parseFloat(element.dataset.parallaxMax) || 50;
-
-      // Позиция секции относительно вьюпорта
-      var parent = element.parentElement;
-      var rect = parent.getBoundingClientRect();
-      var relativeScroll = -(rect.top - viewportHeight / 2);
-
-      // Смещение по Y — ограничено maxOffset
-      var yOffset = clamp(relativeScroll * speed, -maxOffset, maxOffset);
-
-      // Плавное движение по X
-      var xOffset = Math.sin(relativeScroll * 0.005 + index) * 10;
-
-      // Вращение
-      var rotation = shouldRotate ? relativeScroll * 0.03 * speed : 0;
-
-      element.style.transform = 'translate(' + xOffset + 'px, ' + yOffset + 'px) rotate(' + rotation + 'deg)';
+  // У каждой монеты своя физика
+  var coins = [];
+  parallaxElements.forEach(function(el, i) {
+    coins.push({
+      el: el,
+      offset: 0,
+      velocity: 0,
+      flipSign: i % 2 === 0 ? 1 : -1,
+      // Разная жёсткость и затухание — разный ритм
+      stiffness: coinStiffness + i * 0.02,
+      damping: coinDamping - i * 0.02
     });
-  }
-
-  // Throttle
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() {
-        updateParallax();
-        ticking = false;
-      });
-      ticking = true;
-    }
   });
 
-  updateParallax();
+  function tick() {
+    var allSettled = true;
+
+    coins.forEach(function(c) {
+      c.velocity = (c.velocity - c.offset * c.stiffness) * c.damping;
+      c.offset += c.velocity;
+
+      if (Math.abs(c.offset) < 0.05 && Math.abs(c.velocity) < 0.05) {
+        c.offset = 0;
+        c.velocity = 0;
+        c.el.style.transform = 'translateX(0)';
+      } else {
+        allSettled = false;
+        c.el.style.transform = 'translateX(' + c.offset.toFixed(2) + 'px)';
+      }
+    });
+
+    if (allSettled) {
+      running = false;
+      return;
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('scroll', function() {
+    coins.forEach(function(c) {
+      c.flipSign *= -1;
+      c.velocity += c.flipSign * coinShake;
+    });
+
+    if (!running) {
+      running = true;
+      requestAnimationFrame(tick);
+    }
+  });
 }
 
 /**
@@ -271,3 +295,66 @@ function initCounter() {
 window.utils = {
   createSvgIcon
 };
+
+
+function initBurger() {
+  var burger = document.querySelector('.header__burger');
+  var menu = document.querySelector('.header__menu');
+  if (!burger || !menu) return;
+
+  function closeMenu() {
+    menu.classList.remove('active');
+  }
+
+  burger.addEventListener('click', function() {
+    menu.classList.add('active');
+  });
+
+  // Закрытие по клику на крестик (верхняя левая область ::before)
+  menu.addEventListener('click', function(e) {
+    if (e.target === menu && e.offsetX < 60 && e.offsetY < 60) {
+      closeMenu();
+    }
+  });
+
+  // Закрытие по клику на ссылку
+  menu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+}
+
+function initSliderConditions(){
+  if(document.body.clientWidth < 1201){
+    const conditions_container = document.querySelector('#conditions');
+    let steps_list = conditions_container.querySelector('.steps__list');
+
+    steps_list.classList.add('owl-carousel')
+    steps_list.classList.add('owl-theme')
+
+    $('.steps__list').owlCarousel({
+      loop:false,
+      margin:10,
+      nav:false,
+      autoplay: false,
+      dots: true,
+      responsive:{
+        0:{
+          items:1,
+          center: true,
+          autoWidth: true
+        },
+        400: {
+          items: 1,
+          center: true,
+          autoWidth: true
+        },
+        600:{
+          items:2
+        },
+        800: {
+          items: 3
+        }
+      }
+    })
+  }
+}

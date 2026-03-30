@@ -105,6 +105,8 @@ const styles = () => {
 // JavaScript task
 const scripts = () => {
   return gulp.src([
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/owl.carousel/dist/owl.carousel.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
     paths.src.js
   ], { sourcemaps: !isProd })
