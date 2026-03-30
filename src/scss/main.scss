@@ -88,8 +88,11 @@ body{
     object-position: center top;
     will-change: transform;
   }
-  .mob__banner{
-    display: none;
+
+  .banner__image {
+    &--mobile {
+      display: none;
+    }
   }
 }
 
@@ -500,10 +503,10 @@ section{
     100% { left: 150%; }
   }
 
-  .map-wrapper{
+  .map__wrapper {
     position: relative;
-    .map-dots{
-      .dot{
+    .map__dots {
+      .map__dot {
         font-family: var(--second-family);
         font-weight: 400;
         font-size: 0;

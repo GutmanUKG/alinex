@@ -9,13 +9,13 @@
   }
   .map{
     .container{
-      .map-wrapper{
+      .map__wrapper {
         overflow-x: scroll;
         img{
           min-width: 900px;
           width: 100%;
         }
-        .map-dots{
+        .map__dots {
           position: absolute;
           top: 0;
           left: 0;
@@ -40,6 +40,7 @@
   .header {
     .header__burger {
       display: block;
+      margin-right: 20px;
     }
 
     .header__menu {
@@ -90,84 +91,6 @@
       }
     }
   }
-
-  //.map{
-  //  .map-wrapper {
-  //    .map-dots{
-  //      .dot{
-  //        &--almaty{
-  //          top: 72.5%;
-  //          left: 89.5%;
-  //        }
-  //        &--astana{
-  //          top: 39.8%;
-  //          left: 76.9%;
-  //        }
-  //        &--aktay{
-  //          top: 71.2%;
-  //          left: 23%;
-  //        }
-  //        &--aktobe{
-  //          top: 41%;
-  //          left: 39.3%;
-  //        }
-  //        &--atyrau{
-  //          top: 52.4%;
-  //          left: 25%;
-  //        }
-  //        &--karaganda{
-  //          top: 48%;
-  //          left: 85.5%;
-  //        }
-  //        &--kokhetay{
-  //          top: 28%;
-  //          left: 72.3%;
-  //        }
-  //        &--kostanay{
-  //          top: 21%;
-  //          left: 57.5%;
-  //        }
-  //        &--kyzlodrda{
-  //          top: 64.8%;
-  //          left: 61.5%;
-  //        }
-  //        &--pavlodar{
-  //          top: 27.8%;
-  //          left: 90.5%;
-  //        }
-  //        &--petropavlosk{
-  //          top: 15%;
-  //          left: 70.5%;
-  //        }
-  //        &--semey{
-  //          top: 40%;
-  //          left: 99%;
-  //        }
-  //        &--taraz{
-  //          left: 79.5%;
-  //          top: 76%;
-  //        }
-  //        &--uralsk{
-  //          top: 34%;
-  //          left: 24.8%;
-  //        }
-  //        &--oskemen{
-  //          top: 40%;
-  //          left: 107.5%;
-  //        }
-  //        &--shmkent{
-  //          top: 78.5%;
-  //          left: 70.5%;
-  //        }
-  //        &--taldyk{
-  //          top: 65.5%;
-  //          left: 96.5%;
-  //        }
-  //      }
-  //
-  //    }
-  //  }
-  //}
 }
 
 @media(max-width: 768px){
@@ -182,87 +105,6 @@
   }
 
 }
-
-@media(max-width: 767px) {
-  //.map{
-  //  .map-wrapper {
-  //    .map-dots{
-  //      .dot{
-  //        &--almaty{
-  //          top: 72.5%;
-  //          left: 120.5%;
-  //        }
-  //        &--astana{
-  //          top: 39.8%;
-  //          left: 103.5%;
-  //        }
-  //        &--aktay{
-  //          top: 71.2%;
-  //          left: 31%;
-  //        }
-  //        &--aktobe{
-  //          top: 41%;
-  //          left: 53%;
-  //        }
-  //        &--atyrau{
-  //          top: 52.4%;
-  //          left: 34%;
-  //        }
-  //        &--karaganda{
-  //          top: 48%;
-  //          left: 115.5%;
-  //        }
-  //        &--kokhetay{
-  //          top: 28%;
-  //          left: 97.3%;
-  //        }
-  //        &--kostanay{
-  //          top: 21%;
-  //          left: 77.5%;
-  //        }
-  //        &--kyzlodrda{
-  //          top: 64.8%;
-  //          left: 82.5%;
-  //        }
-  //        &--pavlodar{
-  //          top: 27.8%;
-  //          left: 121.8%;
-  //        }
-  //        &--petropavlosk{
-  //          top: 15%;
-  //          left: 95%;
-  //        }
-  //        &--semey{
-  //          top: 40%;
-  //          left: 134%;
-  //        }
-  //        &--taraz{
-  //          left: 107%;
-  //          top: 76%;
-  //        }
-  //        &--uralsk{
-  //          top: 34%;
-  //          left: 33.5%;
-  //        }
-  //        &--oskemen{
-  //          top: 40%;
-  //          left: 145%;
-  //        }
-  //        &--shmkent{
-  //          top: 78.5%;
-  //          left: 95%;
-  //        }
-  //        &--taldyk{
-  //          top: 65.5%;
-  //          left: 130%;
-  //        }
-  //      }
-  //
-  //    }
-  //  }
-  //}
-}
-
 
 @media(max-width: 650px) {
   .footer{
@@ -285,13 +127,14 @@
 
   .banner{
     height: max-content;
-    .big_banner{
-      display: none;
-    }
-    .mob__banner{
-      display: block;
-      object-fit: contain !important;
-
+    .banner__image {
+      &--desktop {
+        display: none;
+      }
+      &--mobile {
+        display: block;
+        object-fit: contain !important;
+      }
     }
   }
 }
