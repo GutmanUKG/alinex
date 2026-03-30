@@ -7,7 +7,9 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url('../fonts/TB-64-113-KAZ.ttf') format('truetype');
+  src: url('../fonts/TB-64-113-KAZ.woff2') format('woff2'),
+       url('../fonts/TB-64-113-KAZ.woff') format('woff'),
+       url('../fonts/TB-64-113-KAZ.ttf') format('truetype');
 }
 
 @font-face {
@@ -15,7 +17,9 @@
   font-style: normal;
   font-display: swap;
   font-weight: 500;
-  src: url('../fonts/TB-64-121-KAZ.ttf') format('truetype');
+  src: url('../fonts/TB-64-121-KAZ.woff2') format('woff2'),
+       url('../fonts/TB-64-121-KAZ.woff') format('woff'),
+       url('../fonts/TB-64-121-KAZ.ttf') format('truetype');
 }
 
 @font-face {
@@ -23,5 +27,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 700;
-  src: url('../fonts/TB-64-123-KAZ.ttf') format('truetype');
+  src: url('../fonts/TB-64-123-KAZ.woff2') format('woff2'),
+       url('../fonts/TB-64-123-KAZ.woff') format('woff'),
+       url('../fonts/TB-64-123-KAZ.ttf') format('truetype');
 }
