@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initParallax();
   initBannerParallax();
   initCounter();
+  initMapDots();
 
   initSliderConditions();
   ininInfoSlider();
@@ -370,9 +371,9 @@ function ininInfoSlider() {
   $('.info__slider').owlCarousel({
     loop:false,
     margin:10,
-    nav:false,
+    nav:true,
     autoplay: false,
-    dots: true,
+    dots: false,
     autoHeight: true,
     responsive:{
       0:{
@@ -382,5 +383,36 @@ function ininInfoSlider() {
 
     }
   })
+}
 
+/**
+ * Map dots - показ тултипа по клику
+ */
+function initMapDots() {
+  var dots = document.querySelectorAll('.map__dot');
+  if (!dots.length) return;
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isActive = this.classList.contains('active');
+
+      // Закрыть все остальные
+      dots.forEach(function(d) {
+        d.classList.remove('active');
+      });
+
+      // Если не была активна - открыть
+      if (!isActive) {
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Закрыть при клике вне точки
+  document.addEventListener('click', function() {
+    dots.forEach(function(d) {
+      d.classList.remove('active');
+    });
+  });
 }

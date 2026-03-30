@@ -10,7 +10,12 @@
   .map{
     .container{
       .map__wrapper {
-        overflow-x: scroll;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+          display: none;
+        }
         img{
           min-width: 900px;
           width: 100%;
@@ -24,7 +29,6 @@
           min-width: 900px;
         }
       }
-
     }
   }
 }
@@ -140,6 +144,19 @@
 }
 
 @media (max-width: 599px){
+  .info {
+    .section-title{
+      margin-bottom: 2rem;
+    }
+    .coin--2{
+      display: none;
+    }
+  }
+  .counter{
+    .section-title{
+      padding-top: 2rem;
+    }
+  }
   .steps{
     .steps__list{
       .step__item{
@@ -175,4 +192,11 @@
     letter-spacing: 0;
   }
 
+
+  .header__logo{
+    svg{
+      width: 120px;
+      height: 50px;
+    }
+  }
 }
