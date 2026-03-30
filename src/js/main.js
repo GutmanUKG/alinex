@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initCounter();
 
   initSliderConditions();
+  ininInfoSlider();
   initBurger();
 
 
@@ -357,4 +358,23 @@ function initSliderConditions(){
       }
     })
   }
+}
+
+function ininInfoSlider() {
+  $('.info__slider').owlCarousel({
+    loop:false,
+    margin:10,
+    nav:false,
+    autoplay: false,
+    dots: true,
+    autoHeight: true,
+    responsive:{
+      0:{
+        items:1,
+
+      },
+
+    }
+  })
+
 }

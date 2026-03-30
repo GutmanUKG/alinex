@@ -88,6 +88,9 @@ body{
     object-position: center top;
     will-change: transform;
   }
+  .mob__banner{
+    display: none;
+  }
 }
 
 // Свечение монет
@@ -290,6 +293,27 @@ body{
   }
   @include e(banner) {
     width: 100%;
+  }
+
+  @include e(slider) {
+    display: none !important;
+    .info__item{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        max-width: 70%;
+        width: 100%;
+        object-fit: contain;
+
+      }
+
+    }
+    .info__item--full{
+      img{
+        max-width: 100%;
+      }
+    }
   }
 }
 
