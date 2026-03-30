@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git push:*)",
+      "Bash(dir:*)",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}
