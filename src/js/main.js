@@ -182,16 +182,19 @@ function createSvgIcon(name, className = '') {
  * data-parallax-rotate="true" - вращение
  */
 function initParallax() {
-  // Отключаем параллакс на мобильных (< 768px) - слишком много событий скролла вызывают тряску
-  if (window.innerWidth < 768) return;
-
   const parallaxElements = document.querySelectorAll('[data-parallax]');
   if (!parallaxElements.length) return;
 
-  var coinShake = 7;
+  var isMobile = window.innerWidth < 768;
+  // На мобильных уменьшаем амплитуду
+  var coinShake = isMobile ? 2 : 7;
   var coinDamping = 0.92;
   var coinStiffness = 0.04;
   var running = false;
+
+  // Throttle для мобильных - не реагировать на каждый scroll event
+  var lastScrollTime = 0;
+  var scrollThrottle = isMobile ? 100 : 0; // 100ms throttle на мобильных
 
   // У каждой монеты своя физика
   var coins = [];
@@ -233,6 +236,13 @@ function initParallax() {
   }
 
   window.addEventListener('scroll', function() {
+    var now = Date.now();
+    // Throttle на мобильных, чтобы свайп не вызывал дёрганье
+    if (scrollThrottle && now - lastScrollTime < scrollThrottle) {
+      return;
+    }
+    lastScrollTime = now;
+
     coins.forEach(function(c) {
       c.flipSign *= -1;
       c.velocity += c.flipSign * coinShake;
@@ -242,7 +252,7 @@ function initParallax() {
       running = true;
       requestAnimationFrame(tick);
     }
-  });
+  }, { passive: true });
 }
 
 /**
