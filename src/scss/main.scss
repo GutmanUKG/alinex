@@ -433,7 +433,7 @@ body{
         display: block;
         font-family: var(--font-family);
         font-weight: 600;
-        @include fluid-font(64, 128); // 128px → 64px
+        @include fluid-font(60, 120); // 128px → 64px
         text-align: center;
         background: linear-gradient(179deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
         background-clip: text;
@@ -515,7 +515,7 @@ section{
     font-weight: 600;
     @include fluid-font(24, 40);
     text-align: center;
-    letter-spacing: -3px;
+    letter-spacing: 0px;
     background: linear-gradient(90deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -669,6 +669,7 @@ section{
           left: 44.5%;
         }
         &--kyzlodrda{
+          display: none;
           top: 64.8%;
           left: 47.5%;
         }
