@@ -365,7 +365,8 @@ function initSliderConditions(){
       loop:false,
       margin:10,
       nav:false,
-      autoplay: false,
+      autoplay: true,
+
       dots: true,
       responsive:{
         0:{
