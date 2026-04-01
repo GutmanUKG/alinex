@@ -72,10 +72,6 @@ const html = () => {
       prefix: '@@',
       basepath: '@file'
     }))
-    .pipe(gulpif(isProd, htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    })))
     .pipe(gulp.dest(paths.dist.html))
     .pipe(browserSync.stream());
 };

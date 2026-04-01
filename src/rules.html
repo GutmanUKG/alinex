@@ -17,19 +17,27 @@
 <header class="header">
     <div class="container">
         <div class="row d-flex align-items-center justify-content-between">
-            <a href="/" class="header__logo" aria-label="Alinex - На главную">
+            <a href="/" class="header__logo col-2" aria-label="Alinex - На главную">
                 <svg width="153" height="73" aria-hidden="true">
                     <use xlink:href="img/sprite.svg#logo"></use>
                 </svg>
             </a>
-            <nav class="header__menu" aria-label="Основная навигация">
-                <ul>
-                    <li><a href="#conditions">Условия</a></li>
-                    <li><a href="#products">Продукция</a></li>
-                    <li><a href="#map">Карта филиалов</a></li>
-                    <li><a href="rules.html">Правила акции</a></li>
+            <div class="header__wrap col-8 d-flex justify-content-between align-items-center" >
+                <nav class="header__menu" aria-label="Основная навигация">
+                    <ul>
+                        <li><a href="#conditions">Условия</a></li>
+                        <li><a href="#products">Продукция</a></li>
+                        <li><a href="#map">Карта филиалов</a></li>
+                        <li><a href="rules.html">Правила акции</a></li>
+                    </ul>
+
+                </nav>
+                <ul class="site__selector d-flex align-items-center gap-2">
+                    <li data-lang="kz">KZ</li>
+                    <li class="active" data-lang="ru">RU</li>
                 </ul>
-            </nav>
+            </div>
+
             <button class="header__burger" type="button" aria-label="Меню"></button>
         </div>
     </div>
