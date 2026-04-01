@@ -113,6 +113,11 @@
 }
 
 @media(max-width: 650px) {
+  .header__wrap{
+    justify-content: end !important;
+    width: max-content;
+
+  }
   .footer{
     .row{
       gap: 2rem;

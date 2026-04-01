@@ -803,5 +803,24 @@ img.sticker{
   display: block;
 }
 
+.site__selector{
+  li{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    &:first-child{
+      &:after{
+        content: "|";
+        color: #fff;
+        margin-left: .5rem;
+      }
+    }
+    &.active{
+      color: #fff;
+    }
+  }
+}
 // Media
 @import 'media';
