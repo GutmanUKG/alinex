@@ -21,9 +21,9 @@
 
 :root {
   --c52900: #c52900;
-  --font-family: "TB-64 KAZ", sans-serif;
-  --second-family: "TB-64 KAZ", sans-serif;
-  --pt-family: "PT Sans", sans-serif;
+  --font-family: "TB-64-122_KAZ", sans-serif;
+  --second-family: "TB-64-121_KAZ", sans-serif;
+  --poppins: "Poppins", sans-serif;
 }
 
 // Preloader
@@ -91,8 +91,8 @@ body{
 
       li a {
         text-decoration: none;
-        font-family: var(--pt-family);
-        font-weight: 600;
+        font-family: var(--second-family);
+        font-weight: 400;
         @include fluid-font(16, 24); // 24px → 16px
         color: #000;
         letter-spacing: -1px;
@@ -216,14 +216,16 @@ body{
 }
 .section-title {
   font-family: var(--font-family);
-  font-weight: 600;
+  font-weight: 400;
   @include fluid-font(32, 64); // 64px → 32px
   text-align: center;
   color: #000;
-  letter-spacing: -3px;
 
   @include m(light) {
     color: #fff;
+  }
+  &--min{
+    @include fluid-font(24, 48); // 64px → 32px
   }
 }
 .steps{
@@ -252,7 +254,7 @@ body{
       .step__text{
         .step__title{
           font-family: var(--second-family);
-          font-weight: 500;
+          font-weight: 400;
           @include fluid-font(28, 50); // 64px → 32px
           text-align: center;
           color: #000;
@@ -512,15 +514,16 @@ section{
 
   @include e(title) {
     font-family: var(--font-family);
-    font-weight: 600;
+    font-weight: 400;
+
     @include fluid-font(24, 40);
     text-align: center;
-    letter-spacing: 0px;
     background: linear-gradient(90deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     @include fluid(margin-bottom, 15, 30);
+
   }
 
   @include e(btn) {
@@ -532,7 +535,7 @@ section{
     @include fluid(padding-left, 20, 40);
     text-decoration: none;
     font-family: var(--font-family);
-    font-weight: 500;
+    font-weight: 400;
     @include fluid-font(18, 28);
     text-align: center;
     color: #fff;
@@ -742,7 +745,7 @@ section{
 
   @include e(site) {
     font-family: var(--font-family);
-    font-weight: 500;
+    font-weight: 400;
     @include fluid-font(24, 40);
     text-align: right;
     letter-spacing: -2px;
@@ -755,7 +758,7 @@ section{
 
 .page_title{
   font-family: var(--font-family);
-  font-weight: 500;
+  font-weight: 400;
   font-size: 32px;
   text-align: center;
   background: linear-gradient(90deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);

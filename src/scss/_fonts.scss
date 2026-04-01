@@ -1,33 +1,39 @@
 // ===========================================
-// TB-64 KAZ - основной шрифт
+// TB-64 KAZ
 // ===========================================
 
 @font-face {
-  font-family: 'TB-64 KAZ';
-  font-style: normal;
-  font-display: swap;
+  font-family: 'TB-64-122_KAZ';
   font-weight: 400;
-  src: url('../fonts/TB-64-113-KAZ.woff2') format('woff2'),
-       url('../fonts/TB-64-113-KAZ.woff') format('woff'),
-       url('../fonts/TB-64-113-KAZ.ttf') format('truetype');
+  src: url('../fonts/TB-64-122_KAZ.woff') format('woff'),
+       url('../fonts/TB-64-122_KAZ.TTF') format('truetype');
 }
 
 @font-face {
-  font-family: 'TB-64 KAZ';
-  font-style: normal;
-  font-display: swap;
+  font-family: 'TB-64-121_KAZ';
+  font-weight: 400;
+  src: url('../fonts/TB-64-121_KAZ.woff') format('woff'),
+       url('../fonts/TB-64-121_KAZ.TTF') format('truetype');
+}
+
+// ===========================================
+// Poppins
+// ===========================================
+
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  src: url('../fonts/Poppinsregular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
   font-weight: 500;
-  src: url('../fonts/TB-64-121-KAZ.woff2') format('woff2'),
-       url('../fonts/TB-64-121-KAZ.woff') format('woff'),
-       url('../fonts/TB-64-121-KAZ.ttf') format('truetype');
+  src: url('../fonts/Poppinsmedium.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'TB-64 KAZ';
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Poppins';
   font-weight: 700;
-  src: url('../fonts/TB-64-123-KAZ.woff2') format('woff2'),
-       url('../fonts/TB-64-123-KAZ.woff') format('woff'),
-       url('../fonts/TB-64-123-KAZ.ttf') format('truetype');
+  src: url('../fonts/Poppinsbold.woff2') format('woff2');
 }
