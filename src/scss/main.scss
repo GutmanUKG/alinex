@@ -262,6 +262,7 @@ body{
         .step__desc{
           font-family: var(--font-family);
           @include fluid-font(14, 24); // 24px → 14px
+          text-align: center;
 
         }
       }

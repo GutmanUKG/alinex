@@ -12531,6 +12531,9 @@ body {
     font-size: 24px;
   }
 }
+.steps .steps__list .step__item .step__text .step__desc {
+  text-align: center;
+}
 .steps .steps__list .step__item--1 {
   background: url(../img/step_1.png) center/contain no-repeat;
 }
@@ -13268,6 +13271,24 @@ img.sticker {
   }
   .main-text__banner {
     background: url("../img/gold_text_mob.png") center/contain no-repeat;
+  }
+  .banner .coin--1 {
+    top: 15%;
+  }
+  .main-text .coin--1 {
+    top: -15%;
+  }
+  .map .coin--1 {
+    top: 15%;
+  }
+  .map .coin--2 {
+    top: -5%;
+  }
+  .map .coin--4 {
+    top: 80%;
+  }
+  .steps .steps__list .step__item {
+    padding: 120px 50px 120px 50px;
   }
 }
 @media (max-width: 599px) {

@@ -154,6 +154,37 @@
   }
 
 
+  .banner{
+    .coin--1{
+      top: 15%;
+    }
+  }
+
+  .main-text{
+    .coin--1{
+      top: -15%;
+    }
+  }
+
+  .map{
+    .coin--1{
+      top: 15%;
+    }
+    .coin--2{
+      top: -5%;
+    }
+    .coin--4{
+      top: 80%;
+    }
+  }
+
+  .steps{
+    .steps__list{
+      .step__item{
+        padding: 120px 50px 120px 50px;
+      }
+    }
+  }
 }
 
 @media (max-width: 599px){
