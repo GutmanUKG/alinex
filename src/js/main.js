@@ -358,12 +358,12 @@ function initBurger() {
 function initSliderConditions(){
   if(document.body.clientWidth < 1201){
     const conditions_container = document.querySelector('#conditions');
-    let steps_list = conditions_container.querySelector('.steps__list');
+    let steps_list = conditions_container.querySelector('.steps__list--imgs');
 
     steps_list.classList.add('owl-carousel')
     steps_list.classList.add('owl-theme')
 
-    $('.steps__list').owlCarousel({
+    $('.steps__list--imgs').owlCarousel({
       loop:false,
       margin:10,
       nav:false,
@@ -374,12 +374,12 @@ function initSliderConditions(){
         0:{
           items:1,
           center: true,
-          autoWidth: true
+          autoWidth: false
         },
         400: {
           items: 1,
           center: true,
-          autoWidth: true
+          autoWidth: false
         },
         600:{
           items:2

@@ -12487,6 +12487,9 @@ body {
   padding-bottom: clamp(40px, 40px + (80 - 40) * (100vw - 425px) / (1920 - 425), 80px);
   position: relative;
 }
+.steps .section-title {
+  margin-bottom: 5rem;
+}
 .steps .steps__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -12494,12 +12497,11 @@ body {
 }
 .steps .steps__list .step__item {
   position: relative;
-  width: 450px;
-  height: 490px;
+  aspect-ratio: 430/450;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 100px;
+  padding: 100px 80px;
   box-sizing: border-box;
 }
 .steps .steps__list .step__item .step__icon {
@@ -13145,6 +13147,14 @@ img.sticker {
 }
 .site__selector li.active {
   color: #fff;
+}
+
+.steps__list--imgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.steps__list--imgs .step__item img {
+  width: 100%;
 }
 
 @media (max-width: 1200px) {

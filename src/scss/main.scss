@@ -249,6 +249,9 @@ body{
   @include fluid(padding-top, 40, 80);
   @include fluid(padding-bottom, 40, 80);
   position: relative;
+  .section-title{
+    margin-bottom: 5rem;
+  }
   .steps__list{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -257,13 +260,13 @@ body{
     .step__item{
       position: relative;
 
-      width: 450px;
-      height: 490px;
+      aspect-ratio: 430/450;
+
       display: flex;
 
       justify-content: center;
       align-items: center;
-      padding: 100px 100px;
+      padding: 100px 80px;
       box-sizing: border-box;
       .step__icon{
         position: absolute;
@@ -842,6 +845,17 @@ img.sticker{
     }
     &.active{
       color: #fff;
+    }
+  }
+}
+
+
+.steps__list--imgs{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  .step__item{
+    img{
+      width: 100%;
     }
   }
 }
