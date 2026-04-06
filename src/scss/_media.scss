@@ -137,7 +137,8 @@
   }
 
   .banner{
-    height: max-content;
+    height: 60vh;
+    background-size: contain ;
     .banner__image {
       &--desktop {
         display: none;
@@ -151,6 +152,7 @@
 
   .main-text__banner{
     background: url("../img/gold_text_mob.png")center/contain no-repeat;
+    height: 200px;
   }
 
 
