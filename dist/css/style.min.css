@@ -12676,7 +12676,26 @@ body {
   }
 }
 .counter .section-title--light {
-  margin-bottom: clamp(50px, 50px + (130 - 50) * (100vw - 425px) / (1920 - 425), 130px);
+  margin-bottom: clamp(10px, 10px + (10 - 10) * (100vw - 425px) / (1920 - 425), 10px);
+}
+.counter .desc {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 24px;
+}
+@media (min-width: 425px) {
+  .counter .desc {
+    font-size: clamp(24px, 24px + (48 - 24) * (100vw - 425px) / (1920 - 425), 48px);
+  }
+}
+@media (min-width: 1920px) {
+  .counter .desc {
+    font-size: 48px;
+  }
+}
+.counter .desc {
+  text-align: center;
+  color: #fff;
 }
 .counter h4, .counter .h4 {
   font-family: var(--font-family);

@@ -421,9 +421,15 @@ body{
   @include fluid(padding-bottom, 40, 80);
   .section-title--light{
     @include fluid-font(24, 48); // 48px → 24px
-    @include fluid(margin-bottom, 50, 130);
+    @include fluid(margin-bottom, 10, 10);
   }
-
+  .desc{
+    font-family: var(--second-family);
+    font-weight: 400;
+    @include fluid-font(24, 48); // 48px → 24px
+    text-align: center;
+    color: #fff;
+  }
   h4{
     font-family: var(--font-family);
     font-weight: 600;
