@@ -12483,20 +12483,18 @@ body {
 }
 .steps .steps__list .step__item {
   position: relative;
-  aspect-ratio: 406/483;
-  height: auto;
+  width: 450px;
+  height: 490px;
   display: flex;
-  align-items: start;
   justify-content: center;
-  padding-top: clamp(60px, 60px + (130 - 60) * (100vw - 425px) / (1920 - 425), 130px);
-  padding-right: clamp(30px, 30px + (70 - 30) * (100vw - 425px) / (1920 - 425), 70px);
-  padding-bottom: clamp(30px, 30px + (70 - 30) * (100vw - 425px) / (1920 - 425), 70px);
-  padding-left: clamp(30px, 30px + (70 - 30) * (100vw - 425px) / (1920 - 425), 70px);
+  align-items: center;
+  padding: 100px 100px;
+  box-sizing: border-box;
 }
 .steps .steps__list .step__item .step__icon {
   position: absolute;
-  top: clamp(20px, 20px + (50 - 20) * (100vw - 425px) / (1920 - 425), 50px);
-  left: clamp(20px, 20px + (50 - 20) * (100vw - 425px) / (1920 - 425), 50px);
+  top: clamp(40px, 40px + (50 - 40) * (100vw - 425px) / (1920 - 425), 50px);
+  left: clamp(40px, 40px + (80 - 40) * (100vw - 425px) / (1920 - 425), 80px);
 }
 .steps .steps__list .step__item .step__text .step__title {
   font-family: var(--font-family);
@@ -12505,12 +12503,12 @@ body {
 }
 @media (min-width: 425px) {
   .steps .steps__list .step__item .step__text .step__title {
-    font-size: clamp(28px, 28px + (50 - 28) * (100vw - 425px) / (1920 - 425), 50px);
+    font-size: clamp(28px, 28px + (64 - 28) * (100vw - 425px) / (1920 - 425), 64px);
   }
 }
 @media (min-width: 1920px) {
   .steps .steps__list .step__item .step__text .step__title {
-    font-size: 50px;
+    font-size: 64px;
   }
 }
 .steps .steps__list .step__item .step__text .step__title {
@@ -12518,21 +12516,23 @@ body {
   color: #000;
 }
 .steps .steps__list .step__item .step__text .step__desc {
-  font-family: var(--font-family);
+  font-family: var(--second-family);
   font-size: 14px;
 }
 @media (min-width: 425px) {
   .steps .steps__list .step__item .step__text .step__desc {
-    font-size: clamp(14px, 14px + (24 - 14) * (100vw - 425px) / (1920 - 425), 24px);
+    font-size: clamp(14px, 14px + (22 - 14) * (100vw - 425px) / (1920 - 425), 22px);
   }
 }
 @media (min-width: 1920px) {
   .steps .steps__list .step__item .step__text .step__desc {
-    font-size: 24px;
+    font-size: 22px;
   }
 }
 .steps .steps__list .step__item .step__text .step__desc {
   text-align: center;
+  font-weight: 400;
+  margin-top: -10px;
 }
 .steps .steps__list .step__item--1 {
   background: url(../img/step_1.png) center/contain no-repeat;
@@ -13301,13 +13301,24 @@ img.sticker {
   .counter .section-title {
     padding-top: 2rem;
   }
+  .counter .coin--3 {
+    top: -15%;
+  }
   .steps .steps__list .step__item {
     aspect-ratio: auto;
     width: 300px;
     height: 350px;
+    padding: 120px 70px 120px 70px;
+  }
+  .steps .steps__list .step__item .step__icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  .steps .steps__list .step__item .step__text {
+    margin-top: 0;
   }
   .steps .steps__list .step__item .step__text .step__title {
-    letter-spacing: -2px;
+    letter-spacing: 0;
   }
   .steps .steps__list .step__item .step__text .step__desc {
     letter-spacing: 0;

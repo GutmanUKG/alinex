@@ -200,6 +200,10 @@
     .section-title{
       padding-top: 2rem;
     }
+
+    .coin--3{
+      top: -15%;
+    }
   }
   .steps{
     .steps__list{
@@ -207,9 +211,17 @@
         aspect-ratio: auto;
         width: 300px;
         height: 350px;
+        padding: 120px 70px 120px 70px;
+        .step__icon{
+          svg{
+            width: 36px;
+            height: 36px;
+          }
+        }
         .step__text{
+          margin-top: 0;
           .step__title{
-            letter-spacing: -2px;
+            letter-spacing: 0;
           }
           .step__desc{
             letter-spacing: 0;

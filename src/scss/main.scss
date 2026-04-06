@@ -239,30 +239,35 @@ body{
 
     .step__item{
       position: relative;
-      aspect-ratio: 406 / 483;
-      height: auto;
+
+      width: 450px;
+      height: 490px;
       display: flex;
-      align-items: start;
+
       justify-content: center;
-      @include fluid-padding(60, 130, 30, 70, 30, 70, 30, 70);
+      align-items: center;
+      padding: 100px 100px;
+      box-sizing: border-box;
       .step__icon{
         position: absolute;
-        @include fluid(top, 20, 50);
-        @include fluid(left, 20, 50);
+        @include fluid(top, 40, 50);
+        @include fluid(left, 40, 80);
       }
       .step__text{
         .step__title{
           font-family: var(--font-family);
           font-weight: 400;
-          @include fluid-font(28, 50); // 64px → 32px
+          @include fluid-font(28, 64); // 64px → 32px
           text-align: center;
           color: #000;
 
         }
         .step__desc{
-          font-family: var(--font-family);
-          @include fluid-font(14, 24); // 24px → 14px
+          font-family: var(--second-family);
+          @include fluid-font(14, 22); // 24px → 14px
           text-align: center;
+          font-weight: 400;
+          margin-top: -10px;
 
         }
       }
