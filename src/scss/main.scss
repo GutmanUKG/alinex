@@ -68,6 +68,7 @@ body{
   overflow-x: hidden;
 }
 .header {
+  position: relative;
   display: flex;
   background: linear-gradient(180deg, #ff6c00 0%, #994100 100%);
   @include fluid(padding-top, 15, 30);
@@ -108,19 +109,37 @@ body{
     padding: 0;
     cursor: pointer;
   }
+
 }
 
 .banner {
   position: relative;
-  height: 100vh;
   overflow: hidden;
-  background: #000;
-  > img {
+  background: url("../img/banner_rebild_2.png")center/cover no-repeat, #000;
+  height: calc(150vh);
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 0;
     width: 100%;
-    height: 120%;
+    background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+    transform: rotate(180deg);
+    opacity:1;
+    height: 100px;
+    z-index: 5;
+  }
+  > img {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
     object-fit: cover;
     object-position: center top;
-    will-change: transform;
+    margin-top: -150px;
+
+
   }
 
   .banner__image {
@@ -169,7 +188,7 @@ body{
 
   // Coin 3
   &--3 {
-    top: 80%;
+    top: 60%;
     left: -3%;
     @include fluid(width, 70, 180);
     z-index: 500;
@@ -177,8 +196,8 @@ body{
 
   // Coin 4
   &--4 {
-    top: 100%;
-    right: -3%;
+    top: 60%;
+    right: 0%;
     @include fluid(width, 90, 220);
     z-index: 500;
   }
@@ -186,30 +205,28 @@ body{
 
 
 .main-text {
-  background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+  background: #000;
   position: relative;
-  @include fluid(margin-top, -50, -120);
+
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -50px;
     left: 0;
     width: 100%;
-    height: 100%;
-    background: url('../img/gold-text-bg.png');
-    background-size: cover;
-    background-position: top;
-    opacity: 1;
+    background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+    opacity:1;
+    height: 50px;
     z-index: 5;
   }
 
   @include e(banner) {
-    background: url('../img/golt-text-full.png') no-repeat;
+    background: url('../img/golt-text-new.png') no-repeat;
     background-size: contain;
-    background-position: top;
+    background-position: center;
     z-index: 500;
-    @include fluid(height, 300, 800);
+    @include fluid(height, 300, 300);
     position: relative;
   }
 }
