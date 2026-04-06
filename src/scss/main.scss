@@ -232,7 +232,7 @@ body{
 }
 .section-title {
   font-family: var(--font-family);
-  font-weight: 400;
+  font-weight: 600;
   @include fluid-font(32, 64); // 64px → 32px
   text-align: center;
   color: #000;
