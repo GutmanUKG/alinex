@@ -5,14 +5,18 @@
 @font-face {
   font-family: 'TB-64-122_KAZ';
   font-weight: 400;
-  src: url('../fonts/TB-64-122_KAZ.woff') format('woff'),
-       url('../fonts/TB-64-122_KAZ.TTF') format('truetype');
+  font-display: swap;
+  src: url('../fonts/TB-64-122_KAZ.woff2') format('woff2'),
+       url('../fonts/TB-64-122_KAZ.woff') format('woff'),
+       url('../fonts/TB-64-122_KAZ.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'TB-64-121_KAZ';
   font-weight: 400;
-  src: url('../fonts/TB-64-121_KAZ.woff') format('woff'),
-       url('../fonts/TB-64-121_KAZ.TTF') format('truetype');
+  font-display: swap;
+  src: url('../fonts/TB-64-121_KAZ.woff2') format('woff2'),
+       url('../fonts/TB-64-121_KAZ.woff') format('woff'),
+       url('../fonts/TB-64-121_KAZ.ttf') format('truetype');
 }
 

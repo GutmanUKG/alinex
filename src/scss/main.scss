@@ -115,8 +115,8 @@ body{
 .banner {
   position: relative;
   overflow: hidden;
-  background: url("../img/banner_rebild_2.png")center/cover no-repeat, #000;
-  height: calc(150vh);
+  background: url("../img/main_banner--new.png")center/cover no-repeat, #000;
+  height: 200vh;
 
 
   &::before {
@@ -204,32 +204,32 @@ body{
 }
 
 
-.main-text {
-  background: #000;
-  position: relative;
-
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
-    opacity:1;
-    height: 50px;
-    z-index: 5;
-  }
-
-  @include e(banner) {
-    background: url('../img/golt-text-new.png') no-repeat;
-    background-size: contain;
-    background-position: center;
-    z-index: 500;
-    @include fluid(height, 300, 300);
-    position: relative;
-  }
-}
+//.main-text {
+//  background: #000;
+//  position: relative;
+//
+//
+//  &::before {
+//    content: '';
+//    position: absolute;
+//    top: -50px;
+//    left: 0;
+//    width: 100%;
+//    background: linear-gradient(360deg, #000 0%, rgba(0, 0, 0, 0) 100%);
+//    opacity:1;
+//    height: 50px;
+//    z-index: 5;
+//  }
+//
+//  @include e(banner) {
+//    background: url('../img/golt-text-new.png') no-repeat;
+//    background-size: contain;
+//    background-position: center;
+//    z-index: 500;
+//    @include fluid(height, 300, 300);
+//    position: relative;
+//  }
+//}
 .section-title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -463,15 +463,16 @@ body{
       position: relative;
 
       span{
-        display: block;
         font-family: var(--font-family);
         font-weight: 400;
-        @include fluid-font(60, 120); // 128px → 64px
+
         text-align: center;
         background: linear-gradient(179deg, #ff6c00 0%, #ffbc2b 50%, #bc4f00 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        display: block;
+        @include fluid-font(60, 128); // 128px → 64px
         text-shadow: 3px 3px 1px 0 rgba(0, 0, 0, 0.5);
 
       }

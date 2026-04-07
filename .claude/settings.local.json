@@ -14,7 +14,10 @@
       "WebSearch",
       "Bash(curl:*)",
       "Bash(ls:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git diff:*)",
+      "Bash(git --no-pager diff src/js/main.js)",
+      "Bash(git pull:*)"
     ]
   }
 }
