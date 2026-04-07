@@ -137,8 +137,10 @@
   }
 
   .banner{
-    height: 60vh;
+    height: 100vh;
+    min-height: 100vh;
     background-size: contain ;
+    background: url("../img/banner_mob--new.png")top/cover no-repeat;
     .banner__image {
       &--desktop {
         display: none;

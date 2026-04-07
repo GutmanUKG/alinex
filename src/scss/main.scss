@@ -116,7 +116,8 @@ body{
   position: relative;
   overflow: hidden;
   background: url("../img/main_banner--new.png")center/cover no-repeat, #000;
-  height: 200vh;
+  min-height: 220vh;
+
 
 
   &::before {
@@ -251,6 +252,7 @@ body{
   position: relative;
   .section-title{
     margin-bottom: 5rem;
+    font-weight: 400;
   }
   .steps__list{
     display: grid;
@@ -328,7 +330,9 @@ body{
 .info {
   background: #000;
   position: relative;
-
+  .section-title{
+    font-weight: 400;
+  }
   .coin {
     position: absolute;
     pointer-events: none;
@@ -429,6 +433,10 @@ body{
     @include fluid-font(24, 48); // 48px → 24px
     text-align: center;
     color: #fff;
+    margin-top: -10px;
+  }
+  .section-title{
+    font-weight: 400;
   }
   h4{
     font-family: var(--font-family);
@@ -534,7 +542,9 @@ section{
   img {
     width: 100%;
   }
-
+  .section-title{
+    font-weight: 400;
+  }
   @include e(descr) {
     font-family: var(--second-family);
     font-weight: 400;

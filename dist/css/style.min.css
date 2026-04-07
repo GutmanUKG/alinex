@@ -12353,7 +12353,7 @@ body {
   position: relative;
   overflow: hidden;
   background: url("../img/main_banner--new.png") center/cover no-repeat, #000;
-  height: 200vh;
+  min-height: 220vh;
 }
 .banner::before {
   content: "";
@@ -12467,6 +12467,7 @@ body {
 }
 .steps .section-title {
   margin-bottom: 5rem;
+  font-weight: 400;
 }
 .steps .steps__list {
   display: grid;
@@ -12556,6 +12557,9 @@ body {
 .info {
   background: #000;
   position: relative;
+}
+.info .section-title {
+  font-weight: 400;
 }
 .info .coin {
   position: absolute;
@@ -12674,6 +12678,10 @@ body {
 .counter .desc {
   text-align: center;
   color: #fff;
+  margin-top: -10px;
+}
+.counter .section-title {
+  font-weight: 400;
 }
 .counter h4, .counter .h4 {
   font-family: var(--font-family);
@@ -12812,6 +12820,9 @@ section {
 }
 .map img {
   width: 100%;
+}
+.map .section-title {
+  font-weight: 400;
 }
 .map__descr {
   font-family: var(--second-family);
@@ -13276,8 +13287,10 @@ img.sticker {
     align-items: center !important;
   }
   .banner {
-    height: 60vh;
+    height: 100vh;
+    min-height: 100vh;
     background-size: contain;
+    background: url("../img/banner_mob--new.png") top/cover no-repeat;
   }
   .banner .banner__image--desktop {
     display: none;
