@@ -13287,8 +13287,8 @@ img.sticker {
     align-items: center !important;
   }
   .banner {
-    height: 100vh;
-    min-height: 100vh;
+    height: 120vh;
+    min-height: 120vh;
     background-size: contain;
     background: url("../img/banner_mob--new.png") top/cover no-repeat;
   }

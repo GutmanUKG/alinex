@@ -157,13 +157,13 @@ const svg = () => {
 
 // Fonts task
 const fonts = () => {
-  return gulp.src(paths.src.fonts, { allowEmpty: true })
+  return gulp.src(paths.src.fonts, { allowEmpty: true, encoding: false })
     .pipe(gulp.dest(paths.dist.fonts));
 };
 
 // Assets task (copy as-is)
 const assets = () => {
-  return gulp.src(paths.src.assets, { allowEmpty: true })
+  return gulp.src(paths.src.assets, { allowEmpty: true, encoding: false })
     .pipe(gulp.dest(paths.dist.assets));
 };
 
